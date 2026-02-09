@@ -110,6 +110,9 @@ public class Biblioteca {
     int iUser = 0;
     int iLibro = 0;
         for(int i = 0; i < this.numUsuarios; i++) {
+            if(this.usuarios[i]==null) {
+                break;
+            }
             if(this.usuarios[i].getId()==userId){
                 estado = true;
                 iUser = i;
@@ -170,6 +173,9 @@ public class Biblioteca {
         int iPrestamo = 0;
         boolean estado = false;
         for(int i = 0; i < this.numPrestamos; i++) {
+            if(this.prestamos[i]==null){
+                break;
+            }
             if(this.prestamos[i].getIdPrestamo()==idPrestamo){
                 estado = true;
                 break;

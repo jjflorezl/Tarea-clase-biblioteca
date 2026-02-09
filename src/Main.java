@@ -17,16 +17,15 @@ public class Main {
 
         Biblioteca biblioteca = new Biblioteca(catalogo.length, usuario.length,prestamo.length);
 
-    Libro l = new Libro("1", "hola", "carlos",1);
+    Libro l = new Libro("1", "los juegos de la llenura", "carlos",1);
     catalogo[0]=l;
-    Libro l2 = new Libro("2", "ola", "parlos",3);
-    Libro l3 = new Libro("3", "si", "sara",4);
+    Libro l2 = new Libro("2", "el negro cirilo", "juanito",3);
+    Libro l3 = new Libro("3", "la belleza de no estar en mecatronica", "sara",4);
     catalogo[1]=l2;
     catalogo[2]=l3;
     biblioteca.agregarLibro(l);
         biblioteca.agregarLibro(l2);
         biblioteca.agregarLibro(l3);
-        System.out.println(biblioteca.getCatalogo()[0].getIsbn());
         Estudiante e = new Estudiante("juan","jGmail",3);
         Estudiante e2 = new Estudiante("jose","hGmail",1);
         Profesor p = new Profesor("sebas","si.gaml","Pimp");
@@ -36,15 +35,17 @@ public class Main {
         biblioteca.registrarUsuario(usuario[0]);
         biblioteca.registrarUsuario(usuario[1]);
         biblioteca.registrarUsuario(usuario[2]);
+
+        // aqui esta el area donde se puede mostrar excepciones diferentes
         try{
 
             biblioteca.prestar(1,"1",6);
-         //   biblioteca.prestar(1,"1",13);
+         //  biblioteca.prestar(1,"2",13);
          //  biblioteca.prestar(1,"1",4);
-         // biblioteca.prestar(5,"hola",1);
-         //   biblioteca.devolver(biblioteca.getPrestamos()[0].getIdPrestamo());
-         // biblioteca.devolver(biblioteca.getPrestamos()[1].getIdPrestamo());
-         //   System.out.println(biblioteca.listarLibrosDisponibles());
+         //  biblioteca.prestar(5,"hola",1);
+            biblioteca.devolver(biblioteca.getPrestamos()[0].getIdPrestamo());
+         //  biblioteca.devolver(biblioteca.getPrestamos()[0].getIdPrestamo());
+            System.out.println(biblioteca.listarLibrosDisponibles());
             System.out.println(biblioteca.listarPrestamosActivos());
         }catch(DiasPrestamoInvalidosException a){
             System.out.println("Error: "+a.getMessage());
